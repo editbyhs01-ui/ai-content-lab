@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "konten-studio"
+version = "0.1.0"
+description = "Starter workflow scaffold for short-form content production"
+requires-python = ">=3.11"
+dependencies = ["PyYAML>=6.0", "python-dotenv>=1.0", "openai>=1.68.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+markers = ["integration: tests that call a live external API and may incur usage costs"]
