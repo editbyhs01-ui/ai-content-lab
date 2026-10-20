@@ -1,0 +1,43 @@
+name: Konten Studio tests
+
+on:
+  pull_request:
+    paths:
+      - 'konten-studio/**'
+      - '.github/workflows/konten-studio-test.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    name: Unit tests and optional API smoke test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: konten-studio
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: konten-studio/pyproject.toml
+      - name: Install package and test dependencies
+        run: python -m pip install --upgrade pip && pip install -e '.[dev]'
+      - name: Run unit tests
+        run: pytest -m 'not integration' -v
+      - name: Run live OpenAI API smoke test when secret is configured
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_TEST_MODEL: ${{ vars.OPENAI_TEST_MODEL }}
+        shell: bash
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "SKIP: OPENAI_API_KEY GitHub Actions secret is not configured."
+            exit 0
+          fi
+          pytest -m integration -v
