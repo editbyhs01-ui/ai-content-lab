@@ -1,0 +1,36 @@
+brand:
+  account: "@editbyhs6"
+  positioning: "Islamic Cinematic Reflection"
+  language: "id-ID"
+  format: "vertical short-form video"
+  character_identity: "consistent virtual woman wearing hijab"
+  platforms:
+    - TikTok
+    - Facebook Reels
+    - Instagram Reels
+    - YouTube Shorts
+
+content_pillars:
+  - id: life_reflection
+    name: "Refleksi kehidupan dan nilai Islami"
+  - id: verified_spiritual_reminders
+    name: "Doa, ayat, dan edukasi spiritual terverifikasi"
+  - id: cinematic_storytelling
+    name: "Storytelling sinematik dengan karakter virtual konsisten"
+
+workflow:
+  - brief
+  - research_and_fact_check
+  - audience_analysis
+  - scriptwriting
+  - editorial_review
+  - platform_optimization
+  - production_package
+  - performance_evaluation
+
+editorial_rules:
+  - "Pisahkan fakta, opini, dan hipotesis."
+  - "Verifikasi ayat, hadis, dan klaim agama dari sumber tepercaya sebelum publikasi."
+  - "Jangan mengarang data riset atau performa."
+  - "Jangan menjamin viral atau pendapatan."
+  - "Gunakan aset orisinal atau aset dengan hak penggunaan yang sesuai."
